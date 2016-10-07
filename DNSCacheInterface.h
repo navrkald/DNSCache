@@ -1,3 +1,6 @@
+#ifndef DNSCACHEINTERFACE_H
+#define DNSCACHEINTERFACE_H
+
 #include <string>
 
 class IDNSCache{
@@ -13,3 +16,5 @@ public:
 //	IDNSCache(IDNSCache const&);              // Don't Implement
 //	void operator=(IDNSCache const&); // Don't implement
 };
+
+#endif // !DNSCACHEINTERFACE_H
