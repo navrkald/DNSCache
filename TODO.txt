@@ -1,6 +1,1 @@
-Test more dificult scenarios
-Debug if map is realy implemented as hashtable
-Read how to optimalize using map
 Implement multithreading
-Do some performance testing
-Refactor names of variables and types 
