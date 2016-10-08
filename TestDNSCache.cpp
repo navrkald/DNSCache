@@ -2,6 +2,10 @@
 #include <math.h>
 #include <cstdlib>
 #include <iostream>
+#include <chrono>
+#include <thread>
+#include <mutex>
+
 using namespace std;
 
 //#define DEBUG
@@ -231,3 +235,30 @@ void CTestDnsCache::PrintPerformanceStatistics(const map<double, size_t>& genera
 	}
 	cout << endl;
 }
+
+void TestThreadCallRandomMethod(){
+	// simulate a long page fetch
+	std::this_thread::sleep_for(std::chrono::seconds(1));
+	CD
+}
+
+void CTestDnsCache::TestMultithreading(){
+	cout << "################ DNS cache test random method call multithreading: ##################" << endl;
+	
+	std::thread t1(TestThreadCallRandomMethod);
+	std::thread t2(TestThreadCallRandomMethod);
+	std::thread t3(TestThreadCallRandomMethod);
+	std::thread t4(TestThreadCallRandomMethod);
+	std::thread t5(TestThreadCallRandomMethod);
+	std::thread t6(TestThreadCallRandomMethod);
+
+	t1.join();
+	t2.join();
+	t3.join();
+	t4.join();
+	t5.join();
+	t6.join();
+    
+	cout << endl;
+}
+

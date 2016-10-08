@@ -20,6 +20,9 @@ protected:
 	void TestUpdateRandomDNSNames(size_t numberOfRandomDNSNames);
 	void GenerateDNSRecords(size_t numberOfRecords);
 
+	// Test multithreading
+	void TestMultithreading();
+
 	// Help methods
 	void StartMeasuringTime();
 	double StopMeasuringTime();
@@ -33,5 +36,7 @@ protected:
 	clock_t m_startTime;
 	clock_t m_endTime;
 };
+
+void TestThreadCallRandomMethod();
 
 #endif // !TESTDNSCACHE_H
