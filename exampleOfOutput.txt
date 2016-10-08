@@ -1,0 +1,146 @@
+################ My queue basic functionality tests: ##################
+Testing empty queue
+OK
+Testing not empty queue
+OK
+
+################ DNS cache basic functionality tests: ##################
+Test zero size buffer
+OK
+Test one size buffer
+OK
+Test one size buffer
+OK
+
+Clean old generated and inserted 1 new unique DNS records in 1.9e-05 seconds.
+Searched random 1 DNS names in 1.5e-05 seconds.
+Updated random 1 DNS names in 6e-06 seconds.
+Clean old generated and inserted 2 new unique DNS records in 7e-06 seconds.
+Searched random 2 DNS names in 9e-06 seconds.
+Updated random 2 DNS names in 7e-06 seconds.
+Clean old generated and inserted 4 new unique DNS records in 1.2e-05 seconds.
+Searched random 4 DNS names in 1.1e-05 seconds.
+Updated random 4 DNS names in 9e-06 seconds.
+Clean old generated and inserted 8 new unique DNS records in 2.4e-05 seconds.
+Searched random 8 DNS names in 1.6e-05 seconds.
+Updated random 8 DNS names in 1.3e-05 seconds.
+Clean old generated and inserted 16 new unique DNS records in 5.9e-05 seconds.
+Searched random 16 DNS names in 2.7e-05 seconds.
+Updated random 16 DNS names in 2.4e-05 seconds.
+Clean old generated and inserted 32 new unique DNS records in 8.8e-05 seconds.
+Searched random 32 DNS names in 4.5e-05 seconds.
+Updated random 32 DNS names in 4.3e-05 seconds.
+Clean old generated and inserted 64 new unique DNS records in 0.000163 seconds.
+Searched random 64 DNS names in 8.2e-05 seconds.
+Updated random 64 DNS names in 7.8e-05 seconds.
+Clean old generated and inserted 128 new unique DNS records in 0.000319 seconds.
+Searched random 128 DNS names in 0.000159 seconds.
+Updated random 128 DNS names in 0.00015 seconds.
+Clean old generated and inserted 256 new unique DNS records in 0.000636 seconds.
+Searched random 256 DNS names in 0.000331 seconds.
+Updated random 256 DNS names in 0.000309 seconds.
+Clean old generated and inserted 512 new unique DNS records in 0.001273 seconds.
+Searched random 512 DNS names in 0.000667 seconds.
+Updated random 512 DNS names in 0.000638 seconds.
+Clean old generated and inserted 1024 new unique DNS records in 0.002553 seconds.
+Searched random 1024 DNS names in 0.001274 seconds.
+Updated random 1024 DNS names in 0.000705 seconds.
+Clean old generated and inserted 2048 new unique DNS records in 0.00182 seconds.
+Searched random 2048 DNS names in 0.000963 seconds.
+Updated random 2048 DNS names in 0.000905 seconds.
+Clean old generated and inserted 4096 new unique DNS records in 0.003784 seconds.
+Searched random 4096 DNS names in 0.00223 seconds.
+Updated random 4096 DNS names in 0.001999 seconds.
+Clean old generated and inserted 8192 new unique DNS records in 0.007694 seconds.
+Searched random 8192 DNS names in 0.004075 seconds.
+Updated random 8192 DNS names in 0.003836 seconds.
+Clean old generated and inserted 16384 new unique DNS records in 0.015701 seconds.
+Searched random 16384 DNS names in 0.008263 seconds.
+Updated random 16384 DNS names in 0.007781 seconds.
+Clean old generated and inserted 32768 new unique DNS records in 0.032645 seconds.
+Searched random 32768 DNS names in 0.017126 seconds.
+Updated random 32768 DNS names in 0.015922 seconds.
+Clean old generated and inserted 65536 new unique DNS records in 0.064769 seconds.
+Searched random 65536 DNS names in 0.037488 seconds.
+Updated random 65536 DNS names in 0.034499 seconds.
+Clean old generated and inserted 131072 new unique DNS records in 0.14552 seconds.
+Searched random 131072 DNS names in 0.090799 seconds.
+Updated random 131072 DNS names in 0.08669 seconds.
+Clean old generated and inserted 262144 new unique DNS records in 0.322884 seconds.
+Searched random 262144 DNS names in 0.203568 seconds.
+Updated random 262144 DNS names in 0.193613 seconds.
+Clean old generated and inserted 524288 new unique DNS records in 0.681732 seconds.
+Searched random 524288 DNS names in 0.425565 seconds.
+Updated random 524288 DNS names in 0.423081 seconds.
+------------------------------
+Times of generating and inserting DNS records:
+Times	Number of records
+7e-06		2
+1.2e-05		4
+1.9e-05		1
+2.4e-05		8
+5.9e-05		16
+8.8e-05		32
+0.000163		64
+0.000319		128
+0.000636		256
+0.001273		512
+0.00182		2048
+0.002553		1024
+0.003784		4096
+0.007694		8192
+0.015701		16384
+0.032645		32768
+0.064769		65536
+0.14552		131072
+0.322884		262144
+0.681732		524288
+
+------------------------------
+Times of searching random DNS records:
+Times		Number of records
+9e-06		2
+1.1e-05		4
+1.5e-05		1
+1.6e-05		8
+2.7e-05		16
+4.5e-05		32
+8.2e-05		64
+0.000159		128
+0.000331		256
+0.000667		512
+0.000963		2048
+0.001274		1024
+0.00223		4096
+0.004075		8192
+0.008263		16384
+0.017126		32768
+0.037488		65536
+0.090799		131072
+0.203568		262144
+0.425565		524288
+
+------------------------------
+Times of updating random DNS records:
+Times		Number of records
+6e-06		1
+7e-06		2
+9e-06		4
+1.3e-05		8
+2.4e-05		16
+4.3e-05		32
+7.8e-05		64
+0.00015		128
+0.000309		256
+0.000638		512
+0.000705		1024
+0.000905		2048
+0.001999		4096
+0.003836		8192
+0.007781		16384
+0.015922		32768
+0.034499		65536
+0.08669		131072
+0.193613		262144
+0.423081		524288
+
