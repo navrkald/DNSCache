@@ -39,7 +39,8 @@ void CDNSCache::Update(const std::string& name, const std::string& ip){
 		// Insert new node
 		CDNSRecord dnsRecord(name, ip);
 		CQueueNode* newNode = new CQueueNode(dnsRecord);
-		m_hashTable.insert_or_assign(hash, newNode);
+		std::pair<size_t,CQueueNode*> hashNodePair(hash, newNode);
+		m_hashTable.insert(hashNodePair);
 		m_queue.PushFront(newNode);
 	}
 }

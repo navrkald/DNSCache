@@ -211,23 +211,23 @@ void CTestDnsCache::PrintPerformanceStatistics(const map<double, size_t>& genera
 	cout << "Times of generating and inserting DNS records:" << endl;
 	cout << "Times\tNumber of records" << endl;
 	for (const auto& timeCountPair : generatingTimes) {
-		cout << timeCountPair.first << "\t" << timeCountPair.second << endl;
+		cout << timeCountPair.first << "\t\t" << timeCountPair.second << endl;
 	}
 	cout << endl;
 
 	cout << "------------------------------" << endl;
 	cout << "Times of searching random DNS records:" << endl;
-	cout << "Times\tNumber of records" << endl;
+	cout << "Times\t\tNumber of records" << endl;
 	for (const auto& timeCountPair : searchingTimes) {
-		cout << timeCountPair.first << "\t" << timeCountPair.second << endl;
+		cout << timeCountPair.first << "\t\t" << timeCountPair.second << endl;
 	}
 	cout << endl;
 	
 	cout << "------------------------------" << endl;
 	cout << "Times of updating random DNS records:" << endl;
-	cout << "Times\tNumber of records" << endl;
+	cout << "Times\t\tNumber of records" << endl;
 	for (const auto& timeCountPair : updatingTimes) {
-		cout << timeCountPair.first << "\t" << timeCountPair.second << endl;
+		cout << timeCountPair.first << "\t\t" << timeCountPair.second << endl;
 	}
 	cout << endl;
 }
