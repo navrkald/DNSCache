@@ -1,5 +1,6 @@
 Test more dificult scenarios
-Make singleton nicer - use references instead of pointers ( http://stackoverflow.com/questions/1008019/c-singleton-design-pattern )
+Debug if map is realy implemented as hashtable
+Read how to optimalize using map
 Implement multithreading
 Do some performance testing
 Refactor names of variables and types 

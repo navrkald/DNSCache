@@ -1,22 +1,19 @@
 #include "DNSCacheImplementation.h"
 
-CDNSCache* CDNSCache::instance = NULL;
 std::hash<std::string> CDNSCache::hashMaker;
 
-CDNSCache::CDNSCache(size_t maxSize){
-		m_maxSize = maxSize;
+CDNSCache::CDNSCache(){
+		m_maxSize = 0;
 }
 
-CDNSCache* CDNSCache::getInstance(size_t maxSize)
+CDNSCache& CDNSCache::GetInstance()
 {	
-	if(!CDNSCache::instance){
-			CDNSCache::instance = new CDNSCache(maxSize);
-	}
-	
-	return CDNSCache::instance;
+	// Lazy created instance with quaranted destruction
+	static CDNSCache instance;	
+	return instance;
 }
 
-void CDNSCache::update(const std::string& name, const std::string& ip){
+void CDNSCache::Update(const std::string& name, const std::string& ip){
 	if (m_maxSize == 0) {
 		return;
 	}
@@ -47,7 +44,7 @@ void CDNSCache::update(const std::string& name, const std::string& ip){
 	}
 }
 	
-std::string CDNSCache::resolve(const std::string& name){
+std::string CDNSCache::Resolve(const std::string& name){
 	unordered_map<size_t, CListNode*>::iterator it;
 	if ((it = m_hashTable.find(hashMaker(name))) != m_hashTable.end()) {
 		// We found IP
@@ -61,7 +58,7 @@ std::string CDNSCache::resolve(const std::string& name){
 
 void CDNSCache::ClearCacheAndSetNewSize(size_t newSize)
 {
-	CDNSCache::instance->m_maxSize = newSize;
-	CDNSCache::instance->m_hashTable.clear();
-	CDNSCache::instance->m_queue.Clear();
+	m_maxSize = newSize;
+	m_hashTable.clear();
+	m_queue.Clear();
 }
