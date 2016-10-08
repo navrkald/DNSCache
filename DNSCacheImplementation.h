@@ -3,7 +3,7 @@
 
 #include <unordered_map>
 #include "DNSCacheInterface.h"
-#include "MyList.h"
+#include "MyQueue.h"
 
 using namespace std;
 class CDNSCache : public IDNSCache
@@ -23,8 +23,8 @@ private:
 	explicit CDNSCache();
 protected:
 	size_t m_maxSize;
-	unordered_map<size_t, CListNode*> m_hashTable;
-	MyList m_queue;
+	unordered_map<size_t, CQueueNode*> m_hashTable;
+	CMyQueue m_queue;
 	static std::hash<std::string> hashMaker;
 };
 

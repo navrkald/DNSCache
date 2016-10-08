@@ -8,7 +8,7 @@ CDNSCache::CDNSCache(){
 
 CDNSCache& CDNSCache::GetInstance()
 {	
-	// Lazy created instance with quaranted destruction
+	// Lazy created instance with guaranteed destruction
 	static CDNSCache instance;	
 	return instance;
 }
@@ -19,7 +19,7 @@ void CDNSCache::Update(const std::string& name, const std::string& ip){
 	}
 
 	size_t hash = hashMaker(name);
-	unordered_map<size_t, CListNode*>::iterator it;
+	unordered_map<size_t, CQueueNode*>::iterator it;
 	
 	// Check if we have 
 	if ((it = m_hashTable.find(hash)) != m_hashTable.end()) {
@@ -31,23 +31,24 @@ void CDNSCache::Update(const std::string& name, const std::string& ip){
 		// It is new DNS record we have to check if we have enough capacity 
 		if (m_hashTable.size() >= m_maxSize) {
 			// We don't have enough capacity so lets delete oldest DNS record
-			CListNode* dnsNode = m_queue.PopLast();
+			CQueueNode* dnsNode = m_queue.PopLast();
 			size_t hash = dnsNode->MakeHash();
 			m_hashTable.erase(hash);
 			delete dnsNode;			
 		}
 		// Insert new node
 		CDNSRecord dnsRecord(name, ip);
-		CListNode* newNode = new CListNode(dnsRecord);
+		CQueueNode* newNode = new CQueueNode(dnsRecord);
 		m_hashTable.insert_or_assign(hash, newNode);
 		m_queue.PushFront(newNode);
 	}
 }
 	
 std::string CDNSCache::Resolve(const std::string& name){
-	unordered_map<size_t, CListNode*>::iterator it;
+	unordered_map<size_t, CQueueNode*>::iterator it;
 	if ((it = m_hashTable.find(hashMaker(name))) != m_hashTable.end()) {
 		// We found IP
+		m_queue.MoveFront(it->second);
 		return it->second->data.m_ip;
 	}
 	else {
