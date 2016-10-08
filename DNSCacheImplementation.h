@@ -2,10 +2,13 @@
 #define DNSCACHEIMPLEMENTATION_H
 
 #include <unordered_map>
+#include <mutex>
 #include "DNSCacheInterface.h"
 #include "MyQueue.h"
 
 using namespace std;
+
+// Thread safe implementation of CDNSCache
 class CDNSCache : public IDNSCache
 {
 public:
@@ -25,6 +28,7 @@ protected:
 	size_t m_maxSize;
 	unordered_map<size_t, CQueueNode*> m_hashTable;
 	CMyQueue m_queue;
+	static std::mutex dnsCacheMutex;
 	static std::hash<std::string> hashMaker;
 };
 

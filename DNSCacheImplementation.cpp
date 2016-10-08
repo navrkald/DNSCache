@@ -1,6 +1,7 @@
 #include "DNSCacheImplementation.h"
 
 std::hash<std::string> CDNSCache::hashMaker;
+std::mutex CDNSCache::dnsCacheMutex;
 
 CDNSCache::CDNSCache(){
 		m_maxSize = 0;
@@ -8,12 +9,14 @@ CDNSCache::CDNSCache(){
 
 CDNSCache& CDNSCache::GetInstance()
 {	
+	std::lock_guard<std::mutex> guard(dnsCacheMutex);
 	// Lazy created instance with guaranteed destruction
 	static CDNSCache instance;	
 	return instance;
 }
 
 void CDNSCache::Update(const std::string& name, const std::string& ip){
+	std::lock_guard<std::mutex> guard(dnsCacheMutex);
 	if (m_maxSize == 0) {
 		return;
 	}
@@ -46,6 +49,7 @@ void CDNSCache::Update(const std::string& name, const std::string& ip){
 }
 	
 std::string CDNSCache::Resolve(const std::string& name){
+	std::lock_guard<std::mutex> guard(dnsCacheMutex);
 	unordered_map<size_t, CQueueNode*>::iterator it;
 	if ((it = m_hashTable.find(hashMaker(name))) != m_hashTable.end()) {
 		// We found IP
@@ -60,6 +64,7 @@ std::string CDNSCache::Resolve(const std::string& name){
 
 void CDNSCache::ClearCacheAndSetNewSize(size_t newSize)
 {
+	std::lock_guard<std::mutex> guard(dnsCacheMutex);
 	m_maxSize = newSize;
 	m_hashTable.clear();
 	m_queue.Clear();
