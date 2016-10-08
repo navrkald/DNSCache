@@ -8,5 +8,6 @@ int main(void){
 
 	CTestDnsCache testDnsCache;
 	testDnsCache.RunBasicFunctionalityTests();
+	testDnsCache.RunPerformanceTests();
 	return 0;
 }
